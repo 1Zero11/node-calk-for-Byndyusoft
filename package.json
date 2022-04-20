@@ -1,0 +1,20 @@
+{
+  "name": "calk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "only-test": "mocha --inspect-brk test/firsttest.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.2"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
