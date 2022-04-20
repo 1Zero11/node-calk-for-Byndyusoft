@@ -1,16 +1,12 @@
 var converter = require("./converter");
+let converter1 = new converter();
 
 module.exports = function() {
 
-    this.methods = {
-        "-": (a, b) => a - b,
-        "+": (a, b) => a + b,
-        "/": (a, b) => a / b,
-        "*": (a, b) => a * b
-    };
+    this.methods = converter1.methods;
 
     this.calculate = function (str) {
-        let converter1 = new converter();
+        
         str = converter1.standartisize(str);
         let postArr = converter1.toPostFix(str);
         

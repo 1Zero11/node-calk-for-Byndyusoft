@@ -11,6 +11,7 @@ module.exports = function () {
 
     this.buffer = [];
 
+    
     this.toPostFixFromArr = (arr) => {
         let buffer = [];
         let opBuffer = [];
@@ -49,13 +50,18 @@ module.exports = function () {
 
     this.getNumber = (str) => {
         let i = 0
-        while (i <= str.length && this.isDigit(str.substring(i, i+1))) {
+        while (i <= str.length &&(this.isDigit(str.substring(i, i+1)) || str[i]=='.')) {
             i++;
         }
 
         return { num: Number(str.substring(0, i)), str: str.substring(i, str.length)}
     };
 
+    /**
+     * Добавляет знак * между скобками и числами,
+     * и 0 перед минусом, если перед ним нет числа или скобки.
+     * Нужно, чтобы toPostFix правильно работал
+     */
     this.standartisize = (str) => {
         for (let i = 0; i < str.length; i++){
             if (str[i] == '(' && i > 0 && this.isDigit(str[i - 1])) {
@@ -73,6 +79,12 @@ module.exports = function () {
         return str;
     };
 
+    /**
+     * Парсит строчку в массив объектов
+     * 
+     * Числа парсятся в числа, знаки остаются строчками,
+     * выражения в скобках записываются как подмассив, но уже без скобок
+     */
     this.toArr = (str) => {
         //console.log("\'" + str + "\'");
         if (str == undefined  || str.length == 0)
