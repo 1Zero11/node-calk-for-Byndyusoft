@@ -61,10 +61,10 @@ module.exports = function () {
             if (str[i] == '(' && i > 0 && this.isDigit(str[i - 1])) {
                 str = str.substring(0, i) + '*' + str.substring(i, str.length);
                 i++;
-            } else if (str[i] == ')' && i < str.length - 1 && this.isDigit(str[i + 1])) {
+            } else if (str[i] == ')' && i < str.length - 1 &&( this.isDigit(str[i + 1]) || str[i + 1]=='(')) {
                 str = str.substring(0, i + 1) + '*' + str.substring(i + 1, str.length);
                 i++;
-            } else if (str[i] == '-' && (i == 0 || !this.isDigit(str[i - 1]) || str[i - 1] == '(')) {
+            } else if (str[i] == '-' && ((i == 0 || !this.isDigit(str[i - 1])) && str[i - 1] != ')')) {
                 str = str.substring(0, i) + '0' + str.substring(i, str.length);
                 i++;
             }

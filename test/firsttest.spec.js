@@ -28,11 +28,14 @@ describe('Solver', () => {
     it('Solves expressions with parentesees', () => {
         expect(calk1.calculate('2+(5-3)')).to.equal(4);
         expect(calk1.calculate('5-(3+7)')).to.equal(-5);
-        //expect(calk1.calculate('-5+10')).to.equal(5);
+        expect(calk1.calculate('(-5)+10')).to.equal(5);
+        expect(calk1.calculate('(50+70)-4')).to.equal(116);
     });
 
-    it('Solves ()+-*/', () => {
+    it('Solves hardest expressions ()+-*/', () => {
         expect(calk1.calculate('10/5+4*(8-3)')).to.equal(22);
+        expect(calk1.calculate('0/5+4*(8-3)')).to.equal(20);
+        expect(calk1.calculate('20/3')).to.equal(20/3);
     })
 });
 
@@ -72,6 +75,7 @@ describe('Converter', () => {
         expect(converter1.standartisize("20+5")).to.equal("20+5");
         expect(converter1.standartisize("4(6-3)")).to.eql("4*(6-3)");
         expect(converter1.standartisize("-3+8/6")).to.eql("0-3+8/6");
+        expect(converter1.standartisize("(50+70)-4")).to.eql("(50+70)-4");
     });
 
 });
