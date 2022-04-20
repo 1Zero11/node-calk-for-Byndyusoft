@@ -35,8 +35,13 @@ describe('Solver', () => {
     it('Solves hardest expressions ()+-*/', () => {
         expect(calk1.calculate('10/5+4*(8-3)')).to.equal(22);
         expect(calk1.calculate('0/5+4*(8-3)')).to.equal(20);
-        expect(calk1.calculate('20/3')).to.equal(20/3);
-    })
+        expect(calk1.calculate('20/3')).to.equal(20 / 3);
+    });
+
+    it('Solves fractional', () => {
+        expect(calk1.calculate('2.5*4')).to.equal(10);
+        expect(calk1.calculate('4.0-2/6')).to.equal(4-2/6);
+    });
 });
 
 describe('Converter', () => {
