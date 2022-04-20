@@ -1,12 +1,12 @@
 # node-calk-for-Byndyusoft
 
-#Запуск
+# Запуск
 
 npm install
 
 node app/app.js
 
-#Тесты
+# Тесты
 
 npm test
 
